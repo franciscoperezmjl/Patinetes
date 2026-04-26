@@ -30,7 +30,7 @@ int main() {
     arbol.insertar(Usuario(550, "Emma Diaz", "emma.diaz@mail.com"));
     arbol.insertar(Usuario(680, "Alvaro Alvarez", "alvaro.a@mail.com"));
     arbol.insertar(Usuario(780, "Carmen Moreno", "carmen.m@mail.com"));
-    arbol.insertar(Usuario(920, "Adrian Muñoz", "adrian.m@mail.com"));
+    arbol.insertar(Usuario(920, "Adrian Miguez", "adrian.m@mail.com"));
     arbol.insertar(Usuario(20, "Alba Romero", "alba.r@mail.com"));
     arbol.insertar(Usuario(80, "David Alonso", "david.a@mail.com"));
     arbol.insertar(Usuario(150, "Noa Gutierrez", "noa.g@mail.com"));
@@ -50,7 +50,7 @@ int main() {
     arbol.insertar(Usuario(820, "Daniela Rubio", "daniela.r@mail.com"));
     arbol.insertar(Usuario(880, "Gael Marin", "gael.m@mail.com"));
     arbol.insertar(Usuario(900, "Paula Sanz", "paula.s@mail.com"));
-    arbol.insertar(Usuario(950, "Thiago Nuñez", "thiago.n@mail.com"));
+    arbol.insertar(Usuario(950, "Thiago Alcantara", "thiago.n@mail.com"));
     arbol.insertar(Usuario(980, "Carla Iglesias", "carla.i@mail.com"));
     arbol.insertar(Usuario(10, "Oliver Medina", "oliver.m@mail.com"));
     arbol.insertar(Usuario(40, "Vega Cortes", "vega.c@mail.com"));
@@ -72,14 +72,23 @@ int main() {
     arbol.mostrarInorden();
     cout << "----------------------------------------------------" << endl;
 
-    // 5. Simulamos un inicio de sesión rápido en O(log N)
-    int idBuscado = 50;
-    cout << "\nIntentando iniciar sesion con ID " << idBuscado << "..." << endl;
+    // 5. Simulamos un inicio de sesión en O(log N)
+    cout << "\n========================================================" << endl;
+    cout << "       SISTEMA DE BUSQUEDA DE USUARIOS EN TIEMPO REAL       " << endl;
+    cout << "========================================================" << endl;
     
-    Usuario* encontrado = arbol.buscar(idBuscado);
+    int idBuscado;
+    cout << "Introduce el ID del usuario que deseas buscar: ";
+    cin >> idBuscado; // Aquí el programa se pausa y espera a que escribas un número
+
+    cout << "\nBuscando ID " << idBuscado << " en el Arbol Binario..." << endl;
+    
+    int pasos = 0;
+    Usuario* encontrado = arbol.buscar(idBuscado, pasos);
     
     if (encontrado != nullptr) {
-        cout << "¡Exito! Bienvenido al sistema, " << encontrado->nombre << "." << endl;
+        cout << "Exito. Bienvenido al sistema, " << encontrado->nombre << "." << endl;
+        cout << "\n[RENDIMIENTO] Operacion completada en tan solo " << pasos << " saltos." << endl;
     } else {
         cout << "Error: Usuario no registrado." << endl;
     }

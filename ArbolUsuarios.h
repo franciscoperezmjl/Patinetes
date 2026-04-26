@@ -16,7 +16,7 @@ private:
     NodoUsuario* raiz;
     
     void insertarRecursivo(NodoUsuario*& nodo, const Usuario& u);
-    Usuario* buscarRecursivo(NodoUsuario* nodo, int id);
+    Usuario* buscarRecursivo(NodoUsuario* nodo, int id, int& pasos);
     void mostrarInordenRecursivo(NodoUsuario* nodo);
     void liberarMemoria(NodoUsuario* nodo);
 
@@ -25,7 +25,7 @@ public:
     ~ArbolUsuarios();
     
     void insertar(const Usuario& u);
-    Usuario* buscar(int id); // Para el inicio de sesión
+    Usuario* buscar(int id, int& pasos); // Para el inicio de sesión
     void mostrarInorden();   // Para listar todos los usuarios registrados
 };
 

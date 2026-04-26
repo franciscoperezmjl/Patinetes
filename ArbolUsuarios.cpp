@@ -45,25 +45,29 @@ void ArbolUsuarios::insertarRecursivo(NodoUsuario*& nodo, const Usuario& u) {
 }
 
 // Método público de búsqueda (Simula el Login)
-Usuario* ArbolUsuarios::buscar(int id) {
-    return buscarRecursivo(raiz, id);
+Usuario* ArbolUsuarios::buscar(int id, int& pasos) {
+    return buscarRecursivo(raiz, id, pasos);
 }
 
 // Lógica recursiva de búsqueda
-Usuario* ArbolUsuarios::buscarRecursivo(NodoUsuario* nodo, int id) {
+Usuario* ArbolUsuarios::buscarRecursivo(NodoUsuario* nodo, int id, int& pasos) {
     // Caso base: no se encontró o el árbol está vacío
     if (nodo == nullptr) {
         return nullptr; 
     }
+
+    pasos++;
+
+
     // Caso base: ¡Lo encontramos! Devolvemos la dirección de memoria de los datos
     if (nodo->data.id == id) {
         return &(nodo->data);
     }
     // Búsqueda binaria: decidimos si ir a la izquierda o a la derecha
     if (id < nodo->data.id) {
-        return buscarRecursivo(nodo->izquierda, id);
+        return buscarRecursivo(nodo->izquierda, id, pasos);
     } else {
-        return buscarRecursivo(nodo->derecha, id);
+        return buscarRecursivo(nodo->derecha, id, pasos);
     }
 }
 
