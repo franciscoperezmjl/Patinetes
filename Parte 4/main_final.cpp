@@ -11,10 +11,10 @@ using namespace std;
 
 int main() {
     // ---------------------------------------------------------
-    // 1. INICIALIZACIÓN Y PRECARGA DE DATOS (Tus datos originales)
+    // 1. INICIALIZACIÓN Y PRECARGA DE DATOS 
     // ---------------------------------------------------------
     
-    // Parte 1: Grafo de la Ciudad (6 estaciones)
+    // Parte 1: Grafo de la Ciudad con 6 estaciones
     GrafoDP ciudad(6);
     ciudad.agregarArista(0, 1, 5);
     ciudad.agregarArista(1, 2, 10);
@@ -23,7 +23,7 @@ int main() {
     ciudad.agregarArista(3, 4, 2);
     ciudad.agregarArista(4, 5, 8);
 
-    // Parte 2: Inventario de Patinetes (Tus 8 patinetes originales)
+    // Parte 2: Inventario de Patinetes 
     ArbolPatinetes inventario;
     inventario.insertar(Patinete(105, "disponible"));
     inventario.insertar(Patinete(87, "mantenimiento"));
