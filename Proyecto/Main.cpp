@@ -122,7 +122,7 @@ int main() {
                 int opt2;
                 do {
                     cout << "\n--- SUBMENU DEL INVENTARIO ---" << endl;
-                    cout << "1. Mostrar inventario\n2. Buscar patinete\n3. Cambiar estado manualmente\n0. Volver" << endl;
+                    cout << "1. Mostrar inventario\n2. Buscar patinete\n3. Cambiar estado manualmente\n4. Agregar nuevo patinete\n0. Volver" << endl;
                     cin >> opt2;
                     
                     if(opt2 == 1) {
@@ -147,6 +147,21 @@ int main() {
                             cout << "[SISTEMA] Estado actualizado correctamente." << endl;
                         } else {
                             cout << "[ERROR] Patinete no encontrado." << endl;
+                        }
+                        
+                        } else if(opt2 == 4) { 
+                        int nuevoId;
+                        string nuevoEstado;
+                        cout << "Introduce el ID del nuevo patinete: "; 
+                        cin >> nuevoId;
+                        
+                        if(inventario.buscar(nuevoId) != nullptr) {
+                            cout << "[AVISO] Ya existe un patinete con el ID " << nuevoId << ". No se admiten duplicados." << endl;
+                        } else {
+                            cout << "Introduce el estado (disponible/ocupado/mantenimiento): ";
+                            cin >> nuevoEstado;
+                            inventario.insertar(Patinete(nuevoId, nuevoEstado));
+                            cout << "[SISTEMA] Patinete " << nuevoId << " agregado correctamente." << endl;
                         }
                     }
                 } while(opt2 != 0);
