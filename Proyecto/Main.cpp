@@ -175,18 +175,22 @@ int main() {
                     cout << "1. Encolar averia\n2. Atender urgente\n3. Ver cola\n0. Volver" << endl;
                     cin >> opt3;
                     if(opt3 == 1) {
-                        int id, grav;
-                        cout << "ID Patinete: "; cin >> id;
-                        cout << "Gravedad (1-5): "; cin >> grav;
-                        taller.encolar(id, "Averia reportada", grav);
+                        int id;
+                        cout << "ID Patinete averiado: "; 
+                        cin >> id;
                         
-                        // --- MAGIA AQUI ---
                         Patinete* p = inventario.buscar(id);
+                        
                         if (p != nullptr) {
+                            int grav;
+                            cout << "Gravedad (1-5): "; 
+                            cin >> grav;
+                            taller.encolar(id, "Averia reportada", grav);
+                            
                             p->estado = "mantenimiento";
-                            cout << "[SISTEMA] Estado del patinete " << id << " actualizado a 'mantenimiento'." << endl;
+                            cout << "[SISTEMA] Incidencia registrada. Estado del patinete " << id << " actualizado a 'mantenimiento'." << endl;
                         } else {
-                            cout << "[AVISO] El patinete no existe en el inventario." << endl;
+                            cout << "[ERROR] El patinete con ID " << id << " no existe en el inventario. Operacion cancelada." << endl;
                         }
                         
                     } else if(opt3 == 2) {
@@ -194,7 +198,6 @@ int main() {
                             Incidencia inc = taller.desencolar();
                             cout << "Atendido Patinete: " << inc.idPatinete << endl;
                             
-                            // --- MAGIA AQUI ---
                             Patinete* p = inventario.buscar(inc.idPatinete);
                             if (p != nullptr) {
                                 p->estado = "disponible";
