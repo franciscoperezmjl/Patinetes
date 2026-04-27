@@ -22,13 +22,13 @@ int main() {
     std::cout << "\n=== Ejemplos de Busqueda ===" << std::endl; //los busqueda no llevan acento porq se ralla al ejecutarlo
     
     Patinete* resultado1 = arbol.buscar(123);
-    if (resultado1 != nullptr) { // si lo encuentra muestra esto
+    if (resultado1 != nullptr) { // si lo encuentra, muestra esto
         std::cout << "Busqueda exitosa - Patinete ID 123: Estado = " << resultado1->estado << std::endl; 
     } else {
         std::cout << "Patinete ID 123 no encontrado." << std::endl;
     }
     
-    Patinete* resultado2 = arbol.buscar(999); // este no lo encuentra entonces lo dice
+    Patinete* resultado2 = arbol.buscar(999); // este no lo encuentra, entonces lo dice
     if (resultado2 != nullptr) {
         std::cout << "Busqueda exitosa - Patinete ID 999: Estado = " << resultado2->estado << std::endl;
     } else {
