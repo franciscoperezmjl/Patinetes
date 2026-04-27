@@ -2,7 +2,18 @@
 #ifndef ARBOLUSUARIOS_H
 #define ARBOLUSUARIOS_H
 
-#include "Usuario.h"
+#include <string>
+
+class Usuario {
+public:
+    int id;                    // ID único del usuario (clave para búsqueda binaria en árbol)
+    std::string nombre;        // Nombre completo del usuario
+    std::string email;         // Email de contacto del usuario
+    
+    // Constructor: Inicializa un usuario con su información completa
+    Usuario(int id, std::string nombre, std::string email) 
+        : id(id), nombre(nombre), email(email) {}
+};
 
 // Estructura que representa cada nodo del árbol binario de búsqueda de usuarios
 struct NodoUsuario {
