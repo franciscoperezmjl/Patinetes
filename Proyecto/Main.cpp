@@ -1,3 +1,10 @@
+/******************************************
+* Asignatura: Estructura de Datos         *           *
+* Descripción:  Programa que gestiona un grafo dirigido ponderado asociado a una línea de producción, por ahora solo (A)     *
+* Métodos/Clases : Grafo Dirigido Ponderado, Dijkstra, Cola_Prioridad, Arboles binarios, Procesar solicitud.                            *                  *
+* Programa exclusivo para uso académico   *
+* Realizado por : Grupo 5-Alejandro Garía, Francisco Perez, Hugo Fernandez y Daniel Fernández *
+*******************************************/
 #include <iostream>
 #include <string>
 
